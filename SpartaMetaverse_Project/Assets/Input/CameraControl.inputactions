@@ -1,0 +1,34 @@
+{
+    "name": "CameraControl",
+    "maps": [
+        {
+            "name": "Camera",
+            "id": "67776943-3034-4220-a214-d7aca31b217d",
+            "actions": [
+                {
+                    "name": "CameraZoom",
+                    "type": "Value",
+                    "id": "b9f7eca5-8548-4a75-95bb-3f79d1562afb",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "95c3d17d-f94f-4a0d-8882-dbeabe3e4da4",
+                    "path": "<Mouse>/scroll",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraZoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
