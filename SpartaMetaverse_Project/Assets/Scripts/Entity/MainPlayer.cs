@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 
 public class MainPlayer : MonoBehaviour
 {
+    GameManager gameManager;
+
     public Vector2 inputVec;
     float speed = 5; // 이동속도
     float jumpHeight = 1f; // 점프 높이
@@ -17,6 +19,8 @@ public class MainPlayer : MonoBehaviour
 
     Rigidbody2D rigid;
     SpriteRenderer sprite;
+    IInteractable interactTarget;
+
 
     void Awake()
     {
@@ -31,6 +35,7 @@ public class MainPlayer : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (UIManager.instance.IsPanelOpen()) return;
         // 기본 이동 계산
         Vector2 move = inputVec * speed * Time.fixedDeltaTime;
 
@@ -87,11 +92,46 @@ public class MainPlayer : MonoBehaviour
     // Input System으로 점프 입력 받을 때 호출
     void OnJump()
     {
+        if (UIManager.instance.IsPanelOpen())
+            return;
         if (!isJumping)
         {
             isJumping = true;
             jumpTimer = 0f;
             jumpStartY = rigid.position.y; // 현재 위치 저장
+        }
+    }
+
+    void OnInteract()
+    {
+        if (interactTarget != null)
+        {
+            interactTarget.OnInteract();
+        }
+    }
+
+    void OnCancel()
+    {
+        if (interactTarget is ICancelable cancelable)
+        {
+            cancelable.OnCancel();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        IInteractable interactable = collision.GetComponent<IInteractable>();
+        if (interactable != null)
+        {
+            interactTarget = interactable;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        IInteractable interactable = collision.GetComponent<IInteractable>();
+        if (interactable != null && interactTarget == interactable)
+        {
+            interactTarget = null;
         }
     }
 }
