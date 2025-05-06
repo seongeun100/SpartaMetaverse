@@ -2295,10 +2295,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e80f72b26762f49abaaf70610a187ace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainMenu: {fileID: 1092935009}
-  canvas: {fileID: 875573720}
-  Descript: {fileID: 973376396}
-  GameOver: {fileID: 336718937}
 --- !u!114 &875573722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3840,7 +3836,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -68}
-  m_SizeDelta: {x: 500, y: 150}
+  m_SizeDelta: {x: 600, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1496835805
 MonoBehaviour:
@@ -5582,7 +5578,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 58}
-  m_SizeDelta: {x: 500, y: 150}
+  m_SizeDelta: {x: 600, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1952829519
 MonoBehaviour:
@@ -5604,9 +5600,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC870\uC791 \uBC29\uBC95\nSpace Bar\uB97C \uB20C\uB7EC \uBE44\uD589\uAE30\uB97C
-    \uB744\uC6B0\uC138\uC694.\n\uC7A5\uC560\uBB3C\uC744 \uD53C\uD558\uBA74\uC11C
-    \uCD5C\uB300\uD55C \uC624\uB798 \uBE44\uD589\uD558\uC138\uC694.\n"
+  m_text: "\uC870\uC791 \uBC29\uBC95\nSpace Bar \uB610\uB294 \uB9C8\uC6B0\uC2A4 \uC88C\uD074\uB9AD\uC73C\uB85C
+    \uBE44\uD589\uAE30\uB97C \uB744\uC6B0\uC138\uC694.\n\uC7A5\uC560\uBB3C\uC744
+    \uD53C\uD558\uBA74\uC11C \uCD5C\uB300\uD55C \uC624\uB798 \uBE44\uD589\uD558\uC138\uC694.\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3b66b0bc5d79f458891d35bff7c27951, type: 2}
   m_sharedMaterial: {fileID: 4833252281688618325, guid: 3b66b0bc5d79f458891d35bff7c27951, type: 2}
@@ -6347,7 +6343,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c9af032e89d346c89aa2d76db29835b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numBgCount: 5
   obstacleCount: 0
   obstacleLastPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &2107554741

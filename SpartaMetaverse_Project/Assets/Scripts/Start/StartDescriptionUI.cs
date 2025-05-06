@@ -1,27 +1,27 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FlappyDescriptionUI : BaseUI<FlappyUIState, FlappyUIManager>
+public class StartDescriptionUI : BaseUI<StartUIState, StartUIManager>
 {
     // 인스펙터에서 연결할 메인메뉴 버튼
     [SerializeField] private Button mainMenuButton;
 
     // UI 초기화 시 호출되는 함수
-    public override void Init(FlappyUIManager flappyUIManager)
+    public override void Init(StartUIManager startUIManager)
     {
-        // FlappyUImanager 가져옴
-        base.Init(flappyUIManager);
+        // StartUImanager 가져옴
+        base.Init(startUIManager);
         // mainMenuButton 클릭 시
         mainMenuButton.onClick.AddListener(() =>
         {
             // 메인메뉴 UI 활성화
-            uiManager.ChangeState(FlappyUIState.Main);
+            uiManager.ChangeState(StartUIState.Main);
         });
     }
 
     // UI의 상태를 반환
-    protected override FlappyUIState GetUIState()
+    protected override StartUIState GetUIState()
     {
-        return FlappyUIState.Description;
+        return StartUIState.Description;
     }
 }
