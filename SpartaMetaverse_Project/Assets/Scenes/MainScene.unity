@@ -956,7 +956,7 @@ GameObject:
   - component: {fileID: 249949272}
   - component: {fileID: 249949271}
   m_Layer: 5
-  m_Name: EnterBtn
+  m_Name: ExitBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4062,13 +4062,14 @@ GameObject:
   - component: {fileID: 319898737}
   - component: {fileID: 319898736}
   - component: {fileID: 319898735}
+  - component: {fileID: 319898738}
   m_Layer: 5
   m_Name: ExitUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &319898734
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4143,6 +4144,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 319898733}
   m_CullTransparentMesh: 1
+--- !u!114 &319898738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319898733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 855a45ef4540b4f04a42a1569f755a9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exitButton: {fileID: 249949271}
+  cancelButton: {fileID: 848455220}
 --- !u!1 &349459372
 GameObject:
   m_ObjectHideFlags: 0
