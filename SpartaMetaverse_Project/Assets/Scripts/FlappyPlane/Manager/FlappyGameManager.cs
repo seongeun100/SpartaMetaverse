@@ -10,7 +10,7 @@ public class FlappyGameManager : MonoBehaviour
 
     public static FlappyGameManager Instance { get { return flappyGameManager; } }
 
-    private int currentScore = 0;
+    // private int currentScore = 0;
 
 
     FlappyUIManager flappyUiManager;
@@ -36,7 +36,7 @@ public class FlappyGameManager : MonoBehaviour
             Time.timeScale = 0;
             FlappyUIManager.instance.ChangeState(FlappyUIState.Main);
         }
-        flappyUiManager.UpdateScore(0);
+        ScoreManager.Instance.ResetScore();
     }
 
     public void StartGame()
@@ -47,7 +47,7 @@ public class FlappyGameManager : MonoBehaviour
     public void GameOver()
     {
         Time.timeScale = 0;
-        flappyUiManager.ChangeState(FlappyUIState.GameOver);
+        EndGame();
     }
 
     public void RestartGame()
@@ -58,8 +58,15 @@ public class FlappyGameManager : MonoBehaviour
 
     public void AddScore(int score)
     {
-        currentScore += score;
-        Debug.Log("Score: " + currentScore);
-        flappyUiManager.UpdateScore(currentScore);
+        ScoreManager.Instance.AddScore(score); // 점수 누적
     }
+
+    public void EndGame()
+    {
+        ScoreManager.Instance.SaveBestScore(); // 최고 점수 저장
+        PlayerPrefs.SetInt("LastScore", ScoreManager.Instance.score); // 마지막 점수 저장
+        PlayerPrefs.Save();
+        flappyUiManager.ChangeState(FlappyUIState.GameOver);
+    }
+
 }

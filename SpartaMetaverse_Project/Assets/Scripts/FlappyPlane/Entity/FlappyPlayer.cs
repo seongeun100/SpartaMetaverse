@@ -11,7 +11,6 @@ public class Player : MonoBehaviour
     public float flapForce = 6f;
     public float forwardSpeed = 3f;
     public bool isDead = false;
-    float deathCooldown = 0f;
 
     bool isFlap = false;
 
@@ -38,14 +37,10 @@ public class Player : MonoBehaviour
     {
         if (isDead)
         {
-            if (deathCooldown <= 0 && !isGameOver)
+            if (!isGameOver)
             {
                 flappyGameManager.GameOver();
                 isGameOver = true;
-            }
-            else
-            {
-                deathCooldown -= Time.deltaTime;
             }
         }
         else
@@ -84,7 +79,6 @@ public class Player : MonoBehaviour
         if (isDead) return;
 
         isDead = true;
-        deathCooldown = 1f;
         animator.SetInteger("IsDie", 1);
     }
 }

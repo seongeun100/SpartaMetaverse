@@ -47,11 +47,6 @@ public class CameraFollow : MonoBehaviour
             scrollValue = 0;
         }
     }
-    // public void SetTarget(Transform t)
-    // {
-    //     target = t;
-    //     offset = transform.position - target.position;
-    // }
 
     public void OnCameraZoom(InputValue value)
     {

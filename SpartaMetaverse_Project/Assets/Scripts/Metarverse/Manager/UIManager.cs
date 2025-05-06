@@ -42,9 +42,14 @@ public class UIManager : MonoBehaviour
     {
         currentState = state;
 
-        talkUI.SetActive(currentState);
-        enterUI.SetActive(currentState);
-        gameStartUI.SetActive(currentState);
+        if (talkUI != null)
+            talkUI.SetActive(currentState);
+
+        if (enterUI != null)
+            enterUI.SetActive(currentState);
+
+        if (gameStartUI != null)
+            gameStartUI.SetActive(currentState);
     }
 
     public bool IsPanelOpen()

@@ -1,11 +1,11 @@
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance { get; private set; } // 전역 접근용 인스턴스
     public int score = 0;
-    public Text scoreText;
+    public TextMeshProUGUI currentScore;
 
     void Awake()
     {
@@ -13,7 +13,7 @@ public class ScoreManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // 씬 전환 시 파괴되지 않도록 설정
+            // DontDestroyOnLoad(gameObject); // 씬 전환 시 파괴되지 않도록 설정
         }
         else
         {
@@ -34,8 +34,10 @@ public class ScoreManager : MonoBehaviour
 
     private void UpdateScoreUI()
     {
-        if (scoreText != null)
-            scoreText.text = $"점수: {score}";
+        if (currentScore != null)
+        {
+            currentScore.text = $"{score}";
+        }
     }
 
     public void ResetScore()
@@ -43,4 +45,17 @@ public class ScoreManager : MonoBehaviour
         score = 0;
         UpdateScoreUI();
     }
+
+
+    public void SaveBestScore()
+    {
+        int bestScore = PlayerPrefs.GetInt("BestScore", 0);
+
+        if (score > bestScore)
+        {
+            PlayerPrefs.SetInt("BestScore", score);
+            PlayerPrefs.Save();
+        }
+    }
+
 }

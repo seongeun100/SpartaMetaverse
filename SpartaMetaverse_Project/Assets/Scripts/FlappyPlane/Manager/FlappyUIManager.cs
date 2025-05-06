@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 public enum FlappyUIState
 {
@@ -21,14 +20,10 @@ public class FlappyUIManager : MonoBehaviour
     FlappyDescriptionUI descriptionUI;
     FlappyGameOverUI gameOverUI;
 
-    public TextMeshProUGUI scoreText;
-
-
     [SerializeField] private GameObject MainMenu;
     [SerializeField] private GameObject canvas;
     [SerializeField] private GameObject Descript;
     [SerializeField] private GameObject GameOver;
-
 
     void Awake()
     {
@@ -46,15 +41,11 @@ public class FlappyUIManager : MonoBehaviour
     public void ChangeState(FlappyUIState state)
     {
         currentState = state;
-        Debug.Log("현재:" + state);
-
 
         mainUI.SetActive(currentState);
         descriptionUI.SetActive(currentState);
         gameOverUI.SetActive(currentState);
     }
-
-
 
     public bool IsPanelOpen()
     {
@@ -76,8 +67,4 @@ public class FlappyUIManager : MonoBehaviour
         return gameOverUI;
     }
 
-    public void UpdateScore(int score)
-    {
-        scoreText.text = score.ToString();
-    }
 }

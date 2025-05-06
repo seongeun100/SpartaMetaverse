@@ -27,15 +27,19 @@ public class GameManager : MonoBehaviour
     {
         uiManager = UIManager.instance;
         talkUI = uiManager.GetTalkUI(); // TalkUI 가져오기
+        if (talkUI == null)
+        {
+            return;
+        }
         if (returnPosition != Vector2.zero)
         {
             player.transform.position = returnPosition;
+            Camera mainCam = Camera.main;
+            Vector3 camPos = player.transform.position;
+            camPos.z = mainCam.transform.position.z; // 카메라 z값 유지
+            mainCam.transform.position = camPos;
         }
-        // var cameraFollow = Camera.main.GetComponent<CameraFollow>();
-        // if (player != null && cameraFollow != null)
-        // {
-        //     cameraFollow.SetTarget(player.transform);
-        // }
+        Time.timeScale = 1;
     }
 
     public void Interaction(GameObject obj)
