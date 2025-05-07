@@ -21,12 +21,12 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         instance = this; // 싱글톤 초기화
+        uiManager = UIManager.instance; // UIManager 싱글톤 참조
+        talkUI = uiManager.GetTalkUI(); // TalkUI 가져오기
     }
 
     void Start()
     {
-        uiManager = UIManager.instance; // UIManager 싱글톤 참조
-        talkUI = uiManager.GetTalkUI(); // TalkUI 가져오기
         if (talkUI == null)
         {
             return;

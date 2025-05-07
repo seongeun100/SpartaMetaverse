@@ -6,11 +6,11 @@ using UnityEngine;
 // UI 상태를 나타내는 열거형
 public enum UIState
 {
+    None,
     Talk,
     Enter,
     GameStart,
     Exit,
-    None,
 }
 
 public class UIManager : MonoBehaviour
