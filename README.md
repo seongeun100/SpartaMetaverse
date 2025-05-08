@@ -27,7 +27,7 @@ NPC와 상호작용하며 다양한 미니게임에 참여할 수 있습니다.
 2. StartScene 실행하면 게임이이 시작됩니다
 
 ## 🛠 사용한 기술 및 패키지
-- Unity 2D URP
+- Unity 2D BRP
 - TextMeshPro
 - Unity Input System
 - PlayerPrefs
